@@ -26,9 +26,9 @@
          </TD> 
          <TD>
 			<IMG src="images/searchlogo.gif" align="absmiddle" width="25" height="25"> 
-		   <INPUT id="qKey" name="qKey" value="ÉÌÆ·¹Ø¼ü×Ö" onClick="this.value=''"> 
+		   <INPUT id="qKey" name="qKey" value="å•†å“å…³é”®å­—11111" onClick="this.value=''"> 
            <select id="category">
-          	<option value="0">ËùÓĞÉÌÆ·</option>
+          	<option value="0">æ‰€æœ‰å•†å“</option>
 	      	  <logic:present name="cateList">
 		  	<logic:iterate id="cate" name="cateList" type="com.ORM.Category">
 				<option value="${cate.id}">${cate.cateName}</option>					  		
@@ -93,7 +93,7 @@
 				<logic:iterate id="order" name="result" type="com.ORM.Orders">
 				  <tr height="26" class="text" align="center" bgcolor="#FFFFFF">
 					<td>${order.orderNo}</td>
-					<td class="redText">£¤${order.cart.money}</td>
+					<td class="redText">ï¿¥${order.cart.money}</td>
 				     <fmt:formatDate value="${order.orderDate}" var="orderDate" type="both" pattern="yyyy-MM-dd"/>			
 					<td>${orderDate}</td>
 					<td>
@@ -145,7 +145,7 @@
   </tr>
 </table>
 <script language="javascript">
-	//¹¹ÔìÉÌÆ··ÖÀàÏÂÀ­ÁĞ±í
+	//æ„é€ å•†å“åˆ†ç±»ä¸‹æ‹‰åˆ—è¡¨
 	jsonrpc = new JSONRpcClient("JSON-RPC");
 	var result = jsonrpc.ajax.getCategory();
 	for (var i=0;i<result.length;i++){
@@ -155,11 +155,11 @@
 		document.all.category.options.add(option);
 	}
 	
-	//ËÑË÷ÉÌÆ·
+	//æœç´¢å•†å“
 	function QuickSearch(){
 		var url = "mer.do?method=searchMer&cateid="+document.all.category.value;
 		var key = document.all.qKey.value;
-		if (key !=null && key!="ÉÌÆ·¹Ø¼ü×Ö" && key.length>0)url = url+"&key="+key;
+		if (key !=null && key!="å•†å“å…³é”®å­—" && key.length>0)url = url+"&key="+key;
 		window.location = url;
 	}
 </script>
