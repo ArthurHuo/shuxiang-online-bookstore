@@ -26,7 +26,7 @@
          </TD> 
          <TD>
 			<IMG src="images/searchlogo.gif" align="absmiddle" width="25" height="25"> 
-		   <INPUT id="qKey" name="qKey" value="商品关键字11111" onClick="this.value=''"> 
+		   <INPUT id="qKey" name="qKey" value="商品关键字" onClick="this.value=''"> 
            <select id="category">
           	<option value="0">所有商品</option>
 	      	  <logic:present name="cateList">
