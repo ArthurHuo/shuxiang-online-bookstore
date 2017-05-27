@@ -1,6 +1,5 @@
 # Shuxiang B2C Online Bookstore
 A whole online shopping system
-A whole online shopping system
 
 This project developed a whole online shopping system including front-end web pages and back-end management system. Key functions include dynamic web pages, members sign up and sign in, members management, book information management, shopping cart, orders management, etc. This project was developed with Java using SSH frameworks in addition to HTML and JavaScript. MySQL was used as database management system and Tomcat was used as web server.
 
