@@ -3,6 +3,7 @@
  * Template path: templates/java/JavaClass.vtl
  */
 package com.struts.action;
+package com.struts.action;
 
 import javax.servlet.http.*;
 import org.apache.struts.action.*;
@@ -48,7 +49,7 @@ public class LoginAction extends BaseAction {
 				saveErrors(request, msgs);
 			}
 		}catch(Exception ex){
-			logger.info("在执行LoginAction类中的login方法时出错：\n");
+			logger.info("鍦ㄦ墽琛孡oginAction绫讳腑鐨刲ogin鏂规硶鏃跺嚭閿欙細\n");
 			ex.printStackTrace();
 		}
 		return forward;
