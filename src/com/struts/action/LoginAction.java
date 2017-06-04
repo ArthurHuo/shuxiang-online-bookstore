@@ -3,7 +3,7 @@
  * Template path: templates/java/JavaClass.vtl
  */
 package com.struts.action;
-package com.struts.action;
+
 
 import javax.servlet.http.*;
 import org.apache.struts.action.*;
