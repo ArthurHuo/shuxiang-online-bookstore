@@ -3,6 +3,7 @@
  * Template path: templates/java/JavaClass.vtl
  */
 package com.struts.action;
+package com.struts.action;
 
 import java.util.*;
 import javax.servlet.http.*;
@@ -37,8 +38,8 @@ public class MerAction extends BaseAction {
 		List merList = null;
 		List smerList = null;
 		MerService service = new MerServiceImpl();
-		int paseSize = 3; //Ò»Ò³°üº¬3Ìõ¼ÇÂ¼
-		int pageNo = 1; //µ±Ç°ÎªµÚÒ»Ò³
+		int paseSize = 3; //ä¸€é¡µåŒ…å«3æ¡è®°å½•
+		int pageNo = 1; //å½“å‰ä¸ºç¬¬ä¸€é¡µ
 		try{
 			cateList = service.browseCategory();
 			merList = service.browseMer(paseSize,pageNo,0,false);
@@ -47,7 +48,7 @@ public class MerAction extends BaseAction {
 			if (merList!=null)request.setAttribute("merList", merList);
 			if (smerList!=null)request.setAttribute("smerList", smerList);
 		}catch(Exception ex){
-			logger.info("ÔÚÖ´ÐÐMerActionÀàÖÐµÄbrowseIndexMer·½·¨Ê±³ö´í£º\n");
+			logger.info("åœ¨æ‰§è¡ŒMerActionç±»ä¸­çš„browseIndexMeræ–¹æ³•æ—¶å‡ºé”™ï¼š\n");
 			ex.printStackTrace();
 		}
 		return mapping.findForward("index");
@@ -57,23 +58,23 @@ public class MerAction extends BaseAction {
 			HttpServletRequest request, HttpServletResponse response) {
 		List smerList = null;
 		MerService service = new MerServiceImpl();
-		int pageNo = 1; //Ò³ºÅ
-		int pageSize = 15; //Ã¿Ò³¼ÇÂ¼Êý
-		int totals = 0; //¼ÇÂ¼×ÜÊý
-		int totalPages = 0; //×ÜÒ³Êý
+		int pageNo = 1; //é¡µå·
+		int pageSize = 15; //æ¯é¡µè®°å½•æ•°
+		int totals = 0; //è®°å½•æ€»æ•°
+		int totalPages = 0; //æ€»é¡µæ•°
 		if (request.getParameter("pageNo")!=null)pageNo = Integer.parseInt(request.getParameter("pageNo"));			
 		try{
 			smerList = service.browseMer(pageSize,pageNo,0,true);
 			totals = service.countRecord("select count(*) from Merchandise as a where a.special=1");
 			if (smerList!=null)request.setAttribute("smerList", smerList);
-			//ÉèÖÃ×Ü¼ÇÂ¼Êý¡¢×ÜÒ³Êý¡¢µ±Ç°Ò³ºÅ
+			//è®¾ç½®æ€»è®°å½•æ•°ã€æ€»é¡µæ•°ã€å½“å‰é¡µå·
 			totalPages = totals / pageSize;
 			if ((totals % pageSize)>0) totalPages++; 
 			request.setAttribute("totals",new Integer(totals).toString());
 			request.setAttribute("totalPages",new Integer(totalPages).toString());
 			request.setAttribute("pageNo",new Integer(pageNo).toString());			
 		}catch(Exception ex){
-			logger.info("ÔÚÖ´ÐÐMerActionÀàÖÐµÄbrowseSMer·½·¨Ê±³ö´í£º\n");
+			logger.info("åœ¨æ‰§è¡ŒMerActionç±»ä¸­çš„browseSMeræ–¹æ³•æ—¶å‡ºé”™ï¼š\n");
 			ex.printStackTrace();
 		}
 		return mapping.findForward("browseSMer");		
@@ -83,23 +84,23 @@ public class MerAction extends BaseAction {
 			HttpServletRequest request, HttpServletResponse response) {
 		List merList = null;
 		MerService service = new MerServiceImpl();
-		int pageNo = 1; //Ò³ºÅ
-		int pageSize = 15; //Ã¿Ò³¼ÇÂ¼Êý
-		int totals = 0; //¼ÇÂ¼×ÜÊý
-		int totalPages = 0; //×ÜÒ³Êý
+		int pageNo = 1; //é¡µå·
+		int pageSize = 15; //æ¯é¡µè®°å½•æ•°
+		int totals = 0; //è®°å½•æ€»æ•°
+		int totalPages = 0; //æ€»é¡µæ•°
 		if (request.getParameter("pageNo")!=null)pageNo = Integer.parseInt(request.getParameter("pageNo"));			
 		try{
 			merList = service.browseMer(pageSize,pageNo,0,false);
 			totals = service.countRecord("select count(*) from Merchandise as a where a.special=0");
 			if (merList!=null)request.setAttribute("merList", merList);
-			//ÉèÖÃ×Ü¼ÇÂ¼Êý¡¢×ÜÒ³Êý¡¢µ±Ç°Ò³ºÅ
+			//è®¾ç½®æ€»è®°å½•æ•°ã€æ€»é¡µæ•°ã€å½“å‰é¡µå·
 			totalPages = totals / pageSize;
 			if ((totals % pageSize)>0) totalPages++; 
 			request.setAttribute("totals",new Integer(totals).toString());
 			request.setAttribute("totalPages",new Integer(totalPages).toString());
 			request.setAttribute("pageNo",new Integer(pageNo).toString());			
 		}catch(Exception ex){
-			logger.info("ÔÚÖ´ÐÐMerActionÀàÖÐµÄbrowseMer·½·¨Ê±³ö´í£º\n");
+			logger.info("åœ¨æ‰§è¡ŒMerActionç±»ä¸­çš„browseMeræ–¹æ³•æ—¶å‡ºé”™ï¼š\n");
 			ex.printStackTrace();
 		}
 		return mapping.findForward("browseMer");		
@@ -109,10 +110,10 @@ public class MerAction extends BaseAction {
 			HttpServletRequest request, HttpServletResponse response) {
 		List merList = null;
 		MerService service = new MerServiceImpl();
-		int pageNo = 1; //Ò³ºÅ
-		int pageSize = 15; //Ã¿Ò³¼ÇÂ¼Êý
-		int totals = 0; //¼ÇÂ¼×ÜÊý
-		int totalPages = 0; //×ÜÒ³Êý
+		int pageNo = 1; //é¡µå·
+		int pageSize = 15; //æ¯é¡µè®°å½•æ•°
+		int totals = 0; //è®°å½•æ€»æ•°
+		int totalPages = 0; //æ€»é¡µæ•°
 		if (request.getParameter("pageNo")!=null)pageNo = Integer.parseInt(request.getParameter("pageNo"));			
 		try{
 			String hql = "from Merchandise as a ";
@@ -145,14 +146,14 @@ public class MerAction extends BaseAction {
 			merList = service.browseMer(pageSize,pageNo,hql);
 			totals = service.countRecord(hql1);
 			if (merList!=null&&merList.size()>0)request.setAttribute("merList", merList);
-			//ÉèÖÃ×Ü¼ÇÂ¼Êý¡¢×ÜÒ³Êý¡¢µ±Ç°Ò³ºÅ
+			//è®¾ç½®æ€»è®°å½•æ•°ã€æ€»é¡µæ•°ã€å½“å‰é¡µå·
 			totalPages = totals / pageSize;
 			if ((totals % pageSize)>0) totalPages++; 
 			request.setAttribute("totals",new Integer(totals).toString());
 			request.setAttribute("totalPages",new Integer(totalPages).toString());
 			request.setAttribute("pageNo",new Integer(pageNo).toString());			
 		}catch(Exception ex){
-			logger.info("ÔÚÖ´ÐÐMerActionÀàÖÐµÄsearchMer·½·¨Ê±³ö´í£º\n");
+			logger.info("åœ¨æ‰§è¡ŒMerActionç±»ä¸­çš„searchMeræ–¹æ³•æ—¶å‡ºé”™ï¼š\n");
 			ex.printStackTrace();
 		}
 		return mapping.findForward("searchMer");		
@@ -167,7 +168,7 @@ public class MerAction extends BaseAction {
 			Merchandise mer = service.loadMer(id);
 			if (mer!=null)request.setAttribute("mer", mer);
 		}catch(Exception ex){
-			logger.info("ÔÚÖ´ÐÐMerActionÀàÖÐµÄshowMer·½·¨Ê±³ö´í£º\n");
+			logger.info("åœ¨æ‰§è¡ŒMerActionç±»ä¸­çš„showMeræ–¹æ³•æ—¶å‡ºé”™ï¼š\n");
 			ex.printStackTrace();
 		}
 		return mapping.findForward("showMer");		
