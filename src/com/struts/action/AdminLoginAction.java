@@ -3,6 +3,7 @@
  * Template path: templates/java/JavaClass.vtl
  */
 package com.struts.action;
+package com.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,7 +52,7 @@ public class AdminLoginAction extends BaseAction {
 				saveErrors(request, msgs);
 			}
 		}catch(Exception ex){
-			logger.info("在执行AdminLoginAction类中的login方法时出错：\n");
+			logger.info("鍦ㄦ墽琛孉dminLoginAction绫讳腑鐨刲ogin鏂规硶鏃跺嚭閿欙細\n");
 			ex.printStackTrace();
 		}
 		return forward;
